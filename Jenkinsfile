@@ -21,7 +21,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     credentialsId: 'github-ssh-key',
-                    url: 'git@github.com:ltoeyl/myapp-todo.git'
+                    url: 'git@github.com:ltoeyl/todo-myapp.git'
             }
         }
 
