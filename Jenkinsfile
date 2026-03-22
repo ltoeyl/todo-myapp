@@ -21,7 +21,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     credentialsId: 'github-ssh-key',
-                    url: 'git@github.com:YOUR_USERNAME/myapp.git'
+                    url: 'git@github.com:ltoeyl/myapp.git'
             }
         }
 
@@ -53,14 +53,14 @@ pipeline {
             steps {
                 // Wait for pod to be ready, then hit the health endpoint
                 sh 'sleep 10'
-                sh "curl -f http://PUBLIC_IP_2:${NODE_PORT}/health || exit 1"
-                echo "App is healthy at http://PUBLIC_IP_2:${NODE_PORT}"
+                sh "curl -f http://159.223.64.228:${NODE_PORT}/health || exit 1"
+                echo "App is healthy at http://159.223.64.228:${NODE_PORT}"
             }
         }
     }
 
     post {
-        success { echo "DEPLOYED: http://PUBLIC_IP_2:30080" }
+        success { echo "DEPLOYED: http://159.223.64.228:30080" }
         failure { echo "FAILED – see Console Output" }
     }
 }
